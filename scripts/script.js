@@ -2,7 +2,9 @@ window.onload = check("todo1"), check("todo2"), check("todo3")
 
 document.getElementById("tasks").style.height = "4.5rem"
 
-let myTodos = 1;
+let myTodos = 1
+
+const inputTodo = document.getElementById("newTodo")
 
 function check(x) {
     const label = document.getElementById(`${x}Label`);
@@ -19,7 +21,6 @@ function check(x) {
 }
 
 function addTodo() {
-
     if(document.getElementById("newTodo").value === "") return
     const todos = document.getElementById("tasks")
     const task = document.createElement("span")
@@ -30,7 +31,7 @@ function addTodo() {
     myTodoCheck.type = "checkbox"
     myTodoCheck.name = `myTodo${myTodos}`
     myTodoCheck.id = `myTodo${myTodos}`
-    myTodoCheck.setAttribute("onclick", `check(myTodo${myTodos})`)
+    myTodoCheck.setAttribute("onclick", `check('myTodo${myTodos}')`)
 
     myTodoBox.appendChild(myTodoCheck)
     myTodoBox.appendChild(task)
@@ -38,3 +39,8 @@ function addTodo() {
 
     myTodos++
 }
+
+inputTodo.addEventListener("keydown", e => {
+    if(e.key == "Enter") addTodo()
+    else return
+})
