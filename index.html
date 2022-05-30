@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <!-- Chart.css -->
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/charts.min.css">
+
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="sidebar">
+            <i class="fab fa-airbnb fa-3x logo"></i>
+            <hr>
+            <ul class="navbar-nav navigation">
+                <li><a href="index.html" class="nav-link item"><i class="fas fa-home fa-2x"></i></a></li>
+                <li><a href="messages.html" class="nav-link item"><i class="fas fa-envelope-open-text fa-2x"></i></a></li>
+                <li><a href="https://calendar.google.com/" class="nav-link item"><i class="fas fa-calendar fa-2x"></i></a></li>
+            </ul>
+            <a href="https://github.com/rzubrr" class="nav-link" target="_blank" id="github"><i
+                    class="fab fa-github fa-3x"></i></a>
+        </div>
+        <section id="main">
+            <div class="container-fluid" id="dashboard">
+                <nav id="navbar" class="nav">
+                    <h5>Dashboard</h5>
+                    <div id="user" class="d-flex align-items-center justify-content-end">
+                        <h5>Admin</h5>
+                        <img src="images/user.svg" />
+                    </div>
+                </nav>
+                <div class="element" id="dailyStats">
+                    <h5>Daily stats</h5>
+                    <table class="charts-css bar stacked data-spacing-5 show-labels" id="mainChart">
+                        <tbody>
+                            <tr>
+                                <th>Visits</th>
+                                <td style="--size: calc(6.2 / (6.2 + 12.7 + 1.7));">6.2k</td>
+                            </tr>
+                            <tr>
+                                <th>Profits</th>
+                                <td style="--size: calc(12.7 / (6.2 + 12.7 + 1.7));">$127k</td>
+                            </tr>
+                            <tr>
+                                <th>New<br>Clients</th>
+                                <td style="--size: calc(1.7 / (6.2 + 12.7 + 1.7));">1.7k</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="element d-flex flex-column" id="todo">
+                    <h5>To-do today</h5>
+                    <div id="tasks" style="width: fit-content;">
+                    <div><input type="checkbox" name="todo" id="todo1" onclick="check('todo1')"> <span id="todo1Label">Task 1</span></div>
+                    <div><input type="checkbox" name="todo" id="todo2" onclick="check('todo2')"> <span id="todo2Label">Task 2</span></div>
+                    <div><input type="checkbox" name="todo" id="todo3" onclick="check('todo3')">  <span id="todo3Label">Task 3</span></div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mt-2"><input type="text" name="todo" id="newTodo" style="width: 80%;"><button class="btn btn-primary" onclick="addTodo()">+</button></div>
+                </div>
+
+
+                <div class="element" id="overallStats">
+                    <h5>Overall stats</h5>
+                    <ul class="stats">
+                        <li class="d-flex align-items-center p">
+                            <img src="images/eye.svg" height="70px" alt="visits" class="me-3">
+                            <div>
+                                <h5>7.4mln</h5>
+                                <h6>Visits</h6>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center p">
+                            <img src="images/shopping-bag.svg" height="80px" alt="products" class="me-3">
+                            <div>
+                                <h5>3.7mln</h5>
+                                <h6>Products sold</h6>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center p">
+                            <img src="images/users.svg" height="60px" alt="customers" class="me-3">
+                            <div>
+                                <h5>723k</h5>
+                                <h6>Clients</h6>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center p">
+                            <img src="images/money.svg" height="60px" alt="customers" class="me-3">
+                            <div>
+                                <h5>$52.1mln</h5>
+                                <h6>Profits</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="element" id="errorTracker">
+                    <h5>Error tracking</h5>
+                    <table class="charts-css area" id="my-chart" style="height: 6.5rem;">
+                        <tbody>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.3"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.3; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.9"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.9; --size: 0.5"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.5; --size: 0.3"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.3; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                          <tr>
+                            <td style="--start: 0.1; --size: 0.1"> <span class="data"></span> </td>
+                          </tr>
+                        </tbody>
+                    </table>                      
+                </div>
+
+
+                <div class="element" id="el4">
+                    <h5>Weekly</h5>
+                    <div id="detailedStats" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <div>
+                                        <img src="images/eye.svg" height="70px" alt="visits" class="me-3">
+                                        <img src="images/rise.svg" height="30px" alt="rise">
+                                    </div>
+                                    <div>
+                                        <h5>64.234</h5>
+                                        <h6>Visits</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <div>
+                                        <img src="images/shopping-bag.svg" height="70px" alt="visits" class="me-3">
+                                        <img src="images/fall.svg" height="30px" alt="rise">
+                                    </div>
+                                    <div>
+                                        <h5>412.065</h5>
+                                        <h6>Sold</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <img src="images/money.svg" height="70px" alt="visits" class="me-3">
+                                    <div>
+                                        <h5>$4.234.843</h5>
+                                        <h6>Profits</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#detailedStats"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#detailedStats"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="element" id="messageShort">
+                    <h5>Messages (0)</h5>
+                    <p>No new messages</p>
+                </div>
+
+
+                <div class="element" id="el6">
+                    <h5>Daily profits</h5>
+                    <p>Check out these awesome options</p>
+                </div>
+
+
+                <div class="element" id="el7">
+                    <h5>el7</h5>
+                    <p>Check out these awesome options</p>
+                </div>
+
+
+                <div class="element" id="el8">
+                    <h5>el8</h5>
+                    <p>Check out these awesome options</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

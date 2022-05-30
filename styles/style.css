@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Rubik', sans-serif;
+    color: #545454;
+}
+
+.container-fluid {
+    background-color: #f7f7f7;
+    padding-left: 0;
+    width: 100vw;
+}
+
+/* Sidebar */
+
+.col {
+    align-items: center;
+}
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px #e8e7e7;
+    left: 0;
+    width: 6rem;
+    height: 100vh;
+    border-radius: 0 20px 20px 0;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.logo {
+    color: #6559b5;
+}
+
+.item {
+    padding: 0.2rem;
+    border-radius: 7px;
+    margin: 5px;
+    width: 2.7rem;
+    height: 2.7rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.item:hover {
+    background-color: #6559b5;
+}
+
+.item:hover i {
+    color: white;
+}
+
+#github {
+    margin-top: 1.5rem;
+    position: absolute;
+    bottom: 1.5rem;
+}
+
+i {
+    color: #545454;
+}
+
+hr {
+    width: 100%;
+    /* border: 10px dotted; */
+}
+
+ul {
+    position: relative;
+    align-items: center;
+    padding: 0;
+    margin-top: 0;
+    overflow: scroll;
+}
+
+li {
+    list-style: none;
+}
+
+/* Dashboard */
+
+#main {
+    height: 100vh;
+    padding-right: 0;
+}
+
+#dashboard {
+    display: grid;
+    padding-left: 8rem;
+    padding-top: 1.5rem;
+    padding-right: 2rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 0.4fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "nav nav nav nav nav nav"
+        "big big el1 el2 el2 el2"
+        "big big el3 el3 el4 el5"
+        "el6 el6 el7 el7 el8 el8";
+    grid-gap: 1.5rem;
+}
+
+@media (max-width:1200px) {
+    #dashboard {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.4fr 1fr 1fr;
+        grid-template-areas:
+            "nav nav"
+            "big el1"
+            "big el2"
+            "el3 el4"
+            "el5 el6"
+            "el7 el8"
+        ;
+    }
+}
+
+@media (max-width:870px) {
+    #dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 4.8fr;
+        grid-template-areas:
+            "nav"
+            "big"
+            "el1"
+            "el2"
+            "el3"
+            "el4"
+            "el5"
+            "el6"
+            "el7"
+            "el8"
+        ;
+    }
+}
+
+#messages
+{
+    padding-left: 8rem;
+    padding-top: 1.5rem;
+    padding-right: 2rem;
+}
+
+#messagesContent
+{
+    padding-top: 1.5rem;
+}
+
+#unread, #read
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    height: max-content;
+}
+
+.element {
+    text-align: left;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 7px;
+    width: 100%;
+    box-shadow: 0 0 20px #e8e7e7;
+    overflow: scroll;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: white;
+    box-shadow: 0 0 20px #e8e7e7;
+    border-radius: 7px;
+}
+
+p {
+    margin: 0;
+}
+
+#navbar {
+    grid-area: nav;
+}
+
+#navbar h4 {
+    font-weight: 600;
+}
+
+#search {
+    border-radius: 7px;
+    border: 0.5px solid #dedddd;
+}
+
+#mainChart {
+    width: 90%;
+    height: 80%;
+    margin-top: 1.5rem;
+}
+
+#dailyStats {
+    grid-area: big;
+
+}
+
+#todo {
+    grid-area: el1;
+}
+
+#overallStats {
+    grid-area: el2;
+}
+
+#overallStats h6
+{
+    font-weight: 400;
+}
+
+#errorTracker {
+    grid-area: el3;
+}
+
+#statsCarousel {
+    width: 100%;
+}
+
+#weeklySold {
+    height: 7.5rem;
+    --heading-size: 3rem;
+}
+
+#weeklySold caption {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.25rem;
+}
+
+.weekChart {
+    width: 90%;
+}
+
+#el4 {
+    grid-area: el4;
+}
+
+#el5 {
+    grid-area: el5;
+}
+
+#el6 {
+    grid-area: el6;
+}
+
+#el7 {
+    grid-area: el7;
+}
+
+#el8 {
+    grid-area: el8;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
