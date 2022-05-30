@@ -36,7 +36,7 @@
                 <li><a href="messages.html" class="nav-link item"><i class="fas fa-envelope-open-text fa-2x"></i></a></li>
                 <li><a href="https://calendar.google.com/" class="nav-link item"><i class="fas fa-calendar fa-2x"></i></a></li>
             </ul>
-            <a href="https://github.com/rzubrr" class="nav-link" target="_blank" id="github"><i
+            <a href="https://github.com/rzubrr/AdminUI" class="nav-link" target="_blank" id="github"><i
                     class="fab fa-github fa-3x"></i></a>
         </div>
         <section id="main">
@@ -70,7 +70,7 @@
 
                 <div class="element d-flex flex-column" id="todo">
                     <h5>To-do today</h5>
-                    <div id="tasks" style="width: fit-content;">
+                    <div id="tasks">
                     <div><input type="checkbox" name="todo" id="todo1" onclick="check('todo1')"> <span id="todo1Label">Task 1</span></div>
                     <div><input type="checkbox" name="todo" id="todo2" onclick="check('todo2')"> <span id="todo2Label">Task 2</span></div>
                     <div><input type="checkbox" name="todo" id="todo3" onclick="check('todo3')">  <span id="todo3Label">Task 3</span></div>
@@ -228,7 +228,38 @@
 
                 <div class="element" id="el6">
                     <h5>Daily profits</h5>
-                    <p>Check out these awesome options</p>
+                    <table class="charts-css line show-labels" style="width: 80%; height: 80%;">
+                        <tbody>
+                            <tr>
+                              <td style="--start: 0.0; --size: 0.4"> <span class="data"> $ 40K </span> </td>
+                              <th>6:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.4; --size: 0.2"> <span class="data"> $ 20K </span> </td>
+                              <th>7:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.2; --size: 0.6"> <span class="data"> $ 60K </span> </td>
+                              <th>8:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.6; --size: 0.4"> <span class="data"> $ 40K </span> </td>
+                              <th>9:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.4; --size: 0.8"> <span class="data"> $ 80K </span> </td>
+                              <th>10:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.8; --size: 0.6"> <span class="data"> $ 60K </span> </td>
+                              <th>11:00</th>
+                            </tr>
+                            <tr>
+                              <td style="--start: 0.6; --size: 0.9"> <span class="data"> $ 100K </span> </td>
+                              <th>12:00</th>
+                            </tr>
+                          </tbody>
+                    </table>
                 </div>
 
 

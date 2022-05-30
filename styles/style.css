@@ -149,6 +149,12 @@ li {
     padding-top: 1.5rem;
 }
 
+#tasks
+{
+    height: 70%;
+    overflow: scroll;
+}
+
 #unread, #read
 {
     display: grid;
